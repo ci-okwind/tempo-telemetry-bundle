@@ -1,0 +1,18 @@
+{
+    "name": "tbn/tempo-telemetry-bundle",
+    "type": "library",
+    "description": "Tempo Telemetry Symfony Bundle",
+    "keywords": [
+        "PHP",
+        "Bundle",
+        "Tempo"
+    ],
+    "require": {
+        "php": "^8.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "tbn\\TempoTelemetry\\": "src"
+        }
+    }
+}
