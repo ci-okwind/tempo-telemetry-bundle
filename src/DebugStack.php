@@ -6,7 +6,7 @@ use Doctrine\DBAL\Logging\SQLLogger;
 
 class DebugStack implements SQLLogger
 {
-    private $traces = [];
+    public $traces = [];
     public ?Trace $currentTrace = null;
 
     public function __construct(private Tempo $tempo)
