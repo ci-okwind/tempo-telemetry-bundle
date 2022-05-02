@@ -24,6 +24,8 @@ class TraceConverter
             $tags[$tag->name] = $tag->value;
         }
 
+        $tags['app'] = $serviceName;
+
         $converted['tags'] = $tags;
         $converted['localEndpoint'] = [
             'serviceName' => $serviceName
