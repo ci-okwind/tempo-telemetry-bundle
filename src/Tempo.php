@@ -12,6 +12,7 @@ class Tempo
     private ?Trace $rootTrace = null;
     private string $rootSpanId;
     private ?string $callerSpanId = null;
+    const TIMEOUT = 3;
 
     public function __construct(private LoggerInterface $logger, private string $serviceName, private string $url)
     {
@@ -79,9 +80,9 @@ class Tempo
 
             $client = new \GuzzleHttp\Client();
 
-            $client->request('POST', $this->url, ['json' => $alls]);
+            $client->request('POST', $this->url, ['json' => $alls, 'timeout' => static::TIMEOUT]);
         } catch (\Exception $ex) {
-            $this->logger->error($ex->getMessage());
+            $this->logger->warning($ex->getMessage());
         }
     }
 }
