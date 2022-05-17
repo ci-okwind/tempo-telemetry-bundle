@@ -12,6 +12,8 @@ class Tempo
     private ?Trace $rootTrace = null;
     private string $rootSpanId;
     private ?string $callerSpanId = null;
+    private bool $doSend = true;
+
     const TIMEOUT = 3;
 
     public function __construct(private LoggerInterface $logger, private string $serviceName, private string $url)
@@ -69,8 +71,22 @@ class Tempo
         $this->callerSpanId = $value;
     }
 
+    public function disableSend(): void
+    {
+        $this->doSend = false;
+    }
+
+    public function enableSend(): void
+    {
+        $this->doSend = true;
+    }
+
     public function send()
     {
+        if (false === $this->doSend) {
+            return;
+        }
+
         $alls = [];
 
         try {
