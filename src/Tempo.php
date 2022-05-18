@@ -20,6 +20,7 @@ class Tempo
 
     public function setRootTrace(Trace $trace): void
     {
+        $this->purgeTraces();
         $this->rootSpanId = $trace->getId();
 
         if ($this->callerSpanId) {
@@ -79,10 +80,14 @@ class Tempo
             }
 
             $client = new \GuzzleHttp\Client();
-
             $client->request('POST', $this->url, ['json' => $alls, 'timeout' => static::TIMEOUT]);
         } catch (\Exception $ex) {
             $this->logger->warning($ex->getMessage());
         }
+    }
+
+    public function purgeTraces(): void
+    {
+        $this->traces = [];
     }
 }
