@@ -6,21 +6,18 @@ Install
 composer require tbn/tempo-telemetry-bundle
 ```
 
-
-## Update your .env
-
+## Add the config/packages/tempo_telemetry.yaml
 ```
-TEMPO_URL='http://yourInstance:9411'
+tempo_telemetry:
+    timeout: 1 # default value is 3
+    service_name: 'my-service'
+    tempo_url: 'http://yourtempo'
 ```
 
-
-## Add the tempo service
+## Add the tempo DebugStack service
 ```
 services:
-    tbn\TempoTelemetryBundle\Tempo:
-        bind:
-            string $serviceName: 'your service name'
-            string $url: '%env(resolve:TEMPO_URL)%'
+    ...
 when@prod:
     services:
         doctrine.dbal.logger:

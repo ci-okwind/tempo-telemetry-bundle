@@ -1,6 +1,6 @@
 <?php
 
-namespace tbn\TempoTelemetryBundle;
+namespace tbn\TempoTelemetryBundle\Telemetry;
 
 use Psr\Log\LoggerInterface;
 
@@ -14,10 +14,12 @@ class Tempo
     private ?string $callerSpanId = null;
     private bool $doSend = true;
 
-    const TIMEOUT = 3;
-
-    public function __construct(private LoggerInterface $logger, private string $serviceName, private string $url)
-    {
+    public function __construct(
+        private readonly LoggerInterface $logger,
+        private readonly string $serviceName,
+        private readonly string $url,
+        private readonly int $timeout,
+    ) {
     }
 
     public function setRootTrace(Trace $trace): void
@@ -96,7 +98,7 @@ class Tempo
             }
 
             $client = new \GuzzleHttp\Client();
-            $client->request('POST', $this->url, ['json' => $alls, 'timeout' => static::TIMEOUT]);
+            $client->request('POST', $this->url, ['json' => $alls, 'timeout' => $this->timeout]);
         } catch (\Exception $ex) {
             $this->logger->warning($ex->getMessage());
         }

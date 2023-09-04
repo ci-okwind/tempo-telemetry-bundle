@@ -1,0 +1,14 @@
+services:
+    tbn\TempoTelemetryBundle\Telemetry\Tempo:
+        public: true
+        class: "tbn\\TempoTelemetryBundle\\Telemetry\\Tempo"
+        arguments:
+            - '@logger'
+            - '%tbn.tempo_telemetry.service_name%'
+            - '%tbn.tempo_telemetry.tempo_url%'
+            - '%tbn.tempo_telemetry.timeout%'
+    tbn\TempoTelemetryBundle\Telemetry\DebugStack:
+        public: true
+        class: "tbn\\TempoTelemetryBundle\\Telemetry\\DebugStack"
+        arguments:
+            - '@tbn\TempoTelemetryBundle\Telemetry\Tempo'

@@ -1,6 +1,6 @@
 <?php
 
-namespace tbn\TempoTelemetryBundle;
+namespace tbn\TempoTelemetryBundle\Telemetry;
 
 use Doctrine\DBAL\Logging\SQLLogger;
 
