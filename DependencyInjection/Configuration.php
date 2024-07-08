@@ -1,6 +1,6 @@
 <?php
 
-namespace tbn\TempoTelemetryBundle\DependencyInjection;
+namespace Okwind\TempoTelemetryBundle\DependencyInjection;
 
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\Config\Definition\ConfigurationInterface;

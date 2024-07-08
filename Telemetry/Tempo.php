@@ -1,6 +1,6 @@
 <?php
 
-namespace tbn\TempoTelemetryBundle\Telemetry;
+namespace Okwind\TempoTelemetryBundle\Telemetry;
 
 use Psr\Log\LoggerInterface;
 
@@ -98,7 +98,7 @@ class Tempo
             }
 
             $client = new \GuzzleHttp\Client();
-            $client->request('POST', $this->url, ['json' => $alls, 'timeout' => $this->timeout]);
+            $client->request('POST', $this->url, ['json' => $alls, 'connect_timeout' => $this->timeout, 'timeout' => $this->timeout]);
         } catch (\Exception $ex) {
             $this->logger->warning($ex->getMessage());
         }

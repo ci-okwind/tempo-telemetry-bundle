@@ -1,6 +1,6 @@
 <?php
 
-namespace tbn\TempoTelemetryBundle;
+namespace Okwind\TempoTelemetryBundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 

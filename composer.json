@@ -1,5 +1,5 @@
 {
-    "name": "tbn/tempo-telemetry-bundle",
+    "name": "okwind/tempo-telemetry-bundle",
     "type": "library",
     "description": "Tempo Telemetry Symfony Bundle",
     "keywords": [
@@ -8,11 +8,13 @@
         "Tempo"
     ],
     "require": {
-        "php": "^8.0"
+      "psr/log": "^1.0 || ^2.0 || ^3.0",
+      "php": "^8.0",
+      "ext-ctype": "*"
     },
     "autoload": {
         "psr-4": {
-            "tbn\\TempoTelemetryBundle\\": ""
+            "Okwind\\TempoTelemetryBundle\\": ""
         }
     }
 }

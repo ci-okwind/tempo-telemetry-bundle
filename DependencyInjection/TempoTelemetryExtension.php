@@ -1,6 +1,6 @@
 <?php
 
-namespace tbn\TempoTelemetryBundle\DependencyInjection;
+namespace Okwind\TempoTelemetryBundle\DependencyInjection;
 
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\Config\FileLocator;
@@ -16,7 +16,7 @@ class TempoTelemetryExtension extends Extension
 
         //set all config as parameter
         foreach ($config as $key => $value) {
-            $container->setParameter('tbn.tempo_telemetry.'.$key, $value);
+            $container->setParameter('Okwind.tempo_telemetry.'.$key, $value);
         }
 
         $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));

@@ -1,6 +1,6 @@
 <?php
 
-namespace tbn\TempoTelemetryBundle\Telemetry;
+namespace Okwind\TempoTelemetryBundle\Telemetry;
 
 class Trace
 {

@@ -3,7 +3,7 @@
 Install
 
 ```
-composer require tbn/tempo-telemetry-bundle
+composer require okwind/tempo-telemetry-bundle
 ```
 
 ## Add the config/packages/tempo_telemetry.yaml
@@ -21,7 +21,7 @@ services:
 when@prod:
     services:
         doctrine.dbal.logger:
-            alias: tbn\TempoTelemetryBundle\DebugStack
+            alias: okwind\TempoTelemetryBundle\DebugStack
 ```
 
 # Usage
