@@ -22,6 +22,6 @@ class ContextParser
             return null;
         }
 
-        return $pieces;
+        return ['version' => $version, 'traceId' => $traceId, 'spanId' => $spanId, 'flags' => $traceFlags];
     }
 }
