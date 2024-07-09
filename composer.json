@@ -12,6 +12,7 @@
       "php": "^8.0",
       "ext-ctype": "*"
     },
+    "version": "1.0.0",
     "autoload": {
         "psr-4": {
             "Okwind\\TempoTelemetryBundle\\": ""
