@@ -7,8 +7,8 @@ services:
             - '%Okwind.tempo_telemetry.service_name%'
             - '%Okwind.tempo_telemetry.tempo_url%'
             - '%Okwind.tempo_telemetry.timeout%'
-    Okwind\TempoTelemetryBundle\Telemetry\DebugStack:
+    Okwind\TempoTelemetryBundle\Telemetry\SQLTracingMiddleware:
         public: true
-        class: "Okwind\\TempoTelemetryBundle\\Telemetry\\DebugStack"
+        class: "Okwind\\TempoTelemetryBundle\\Telemetry\\SQLTracingMiddleware"
         arguments:
             - '@Okwind\TempoTelemetryBundle\Telemetry\Tempo'
